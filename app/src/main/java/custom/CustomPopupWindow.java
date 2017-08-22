@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
@@ -66,7 +65,7 @@ public  class CustomPopupWindow {
      * @param y
      * @return
      */
-    public CustomPopupWindow showAtLocation(int rootviewid,int gravity,int x,int y){
+    public CustomPopupWindow showAtLocation(int rootviewid, int gravity, int x, int y){
         if (mPopupWindow != null){
             View rootview = LayoutInflater.from(mContext).inflate(rootviewid,null);
             mPopupWindow.showAtLocation(rootview,gravity,x,y);
@@ -82,12 +81,18 @@ public  class CustomPopupWindow {
      * @param offy
      * @return
      */
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public CustomPopupWindow showAsLaction(int targetviewId, int gravity, int offx, int offy){
         if (mPopupWindow != null){
             View targetview = LayoutInflater.from(mContext).inflate(targetviewId,null);
-            mPopupWindow.showAsDropDown(targetview,gravity,offx,offy);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                mPopupWindow.showAsDropDown(targetview,offx,offy,gravity);
+            }else {
+                mPopupWindow.showAtLocation(targetview,offx,offy,gravity);
+
+            }
         }
+
         return this;
     }
 
@@ -99,10 +104,15 @@ public  class CustomPopupWindow {
      * @param offy
      * @return
      */
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public CustomPopupWindow showAsLaction(View targetview, int gravity, int offx, int offy){
         if (mPopupWindow != null){
-            mPopupWindow.showAsDropDown(targetview,gravity,offx,offy);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                mPopupWindow.showAsDropDown(targetview,offx,offy,gravity);
+            }else {
+                mPopupWindow.showAtLocation(targetview,offx,offy,gravity);
+
+            }
         }
         return this;
     }
