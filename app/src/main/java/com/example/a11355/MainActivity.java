@@ -9,6 +9,7 @@ import com.example.a11355.adapter.MianRVAdapter;
 import com.example.a11355.base.AbsRecyclerViewAdapter;
 import com.example.a11355.base.BaseActivity;
 import com.example.a11355.mycustom.R;
+import com.example.a11355.view.CustomDialogActivity;
 import com.example.a11355.view.PopupWindowActivity;
 
 import java.util.Arrays;
@@ -41,9 +42,18 @@ public class MainActivity extends BaseActivity implements AbsRecyclerViewAdapter
 
     @Override
     public void onItemClick(View v, int position) {
-        if (position == 0) {
-            startActivity(new Intent(this, PopupWindowActivity.class));
+        switch (position) {
+            case 0:
+                startActivity(new Intent(this, PopupWindowActivity.class));
+                break;
+            case 1:
+                startActivity(new Intent(this, CustomDialogActivity.class));
+
+                break;
+
+
         }
+
 
     }
 }

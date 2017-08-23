@@ -34,7 +34,7 @@ public interface Constant {
         String PermissionCameraTips = "本应用未获取到拍照权限，请手动授权。\n" +
                 "授权方式：点击设置按钮进入应用设置页面，选择权限(或权限管理)->相机\n请选择允许";
 
-        String[] mainRVTexts = {"PopupWindow"};
+        String[] mainRVTexts = {"PopupWindow","Dialog"};
 
 
     }

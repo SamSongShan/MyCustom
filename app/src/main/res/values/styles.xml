@@ -13,5 +13,9 @@
         <item name="android:windowEnterAnimation">@anim/menu_enter_anim</item>
         <item name="android:windowExitAnimation">@anim/menu_exit_anim</item>
     </style>
-
+    <!-- Dialog从底部弹出动画 -->
+    <style name="animTranslateBottom" parent="android:Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/translate_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/translate_out_bottom</item>
+    </style>
 </resources>
