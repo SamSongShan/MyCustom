@@ -64,5 +64,15 @@ public class PopupWindowActivity extends BaseActivity implements View.OnClickLis
                 break;
         }
     }
+    
+    
+    //1.0完全不透明，0.0f完全透明，要复制出去的   为popupwindow设置暗背景
+    public void backgroundAlpha(Activity context, float bgAlpha) {
+        WindowManager.LayoutParams lp = context.getWindow().getAttributes();
+        lp.alpha = bgAlpha;
+        // context.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+        context.getWindow().setAttributes(lp);
+
+    }
 }
 
